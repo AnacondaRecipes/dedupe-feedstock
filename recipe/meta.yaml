@@ -33,6 +33,7 @@ requirements:
     - affinegap >=1.3
     - btrees >=4.1.4
     - categorical-distance >=1.9
+    # this is actually an optional dependency
     # - dedupe-variable-datetime
     - doublemetaphone
     - haversine >=0.4.1
