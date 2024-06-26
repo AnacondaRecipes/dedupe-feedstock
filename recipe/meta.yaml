@@ -6,8 +6,9 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f0320b39899d489a760c1e0e9e67a526698531f67d03129ac3f76db778f09737
+  # switch to GH release archive to use tests
+  url: https://github.com/dedupeio/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: d4f4e5bd777e3b8aeeac68eee5fbd36d4305cc8eac3115f778e3711a9dad8423
   patches:
     - patches/0001-fix-dependencies.patch
 
@@ -49,10 +50,15 @@ test:
   imports:
     - dedupe
     - dedupe.variables
+  source_files:
+    - tests
   requires:
     - pip
+    - pytest
+    - future
   commands:
     - pip check
+    - pytest -v tests
 
 about:
   home: https://github.com/dedupeio/dedupe
