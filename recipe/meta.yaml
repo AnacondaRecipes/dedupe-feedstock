@@ -13,7 +13,8 @@ source:
 
 build:
   number: 0
-  skip: true  # [win]
+  # skip s390x: no btrees
+  skip: true  # [s390x]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
