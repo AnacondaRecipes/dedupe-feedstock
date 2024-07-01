@@ -15,7 +15,7 @@ source:
 build:
   number: 0
   # skip s390x: no btrees
-  skip: true  # [s390x]
+  skip: true  # [s390x or py<37]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
