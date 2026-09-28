@@ -13,16 +13,15 @@ source:
     - patches/0001-fix-dependencies.patch
 
 build:
-  number: 0
+  number: 1
   # skip s390x: no btrees
   skip: true  # [s390x or py<37]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
-    - patch     # [not win]
-    - m2-patch  # [win]
   host:
     - python
     - cython
